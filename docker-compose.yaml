@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15.1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: product
+    ports:
+      - "5432:5432"
+
+  product-service:
+    container_name: product-service
+    image: product-service
+    ports:
+      - "8080:8080"
+    restart: "always"
